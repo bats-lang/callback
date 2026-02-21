@@ -1,3 +1,4 @@
 [package]
 name = "wasm.bats-packages.dev/callback"
 kind = "lib"
+unsafe = true
