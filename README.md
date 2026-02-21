@@ -1,7 +1,7 @@
 # callback
 
 General-purpose callback registry. Callbacks are registered by integer ID
-(0–127) and can be fired from the host with an integer payload.
+(0-127) and can be fired from the host with an integer payload.
 
 ## API
 
@@ -18,7 +18,3 @@ $CB.fire(id: int, payload: int) : void
 (* Remove a callback by ID *)
 $CB.remove(id: int) : void
 ```
-
-## Dependencies
-
-- **array**
