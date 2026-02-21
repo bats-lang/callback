@@ -18,7 +18,7 @@
 
 (* WASM export -- JS calls this to fire a callback *)
 #pub fun on_callback
-  (id: int, payload: int): void = "ext#ward_on_callback"
+  (id: int, payload: int): void = "ext#bats_on_callback"
 
 (* ============================================================
    C runtime -- closure table
