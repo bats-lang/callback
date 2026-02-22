@@ -26,6 +26,8 @@
 
 $UNSAFE begin
 %{#
+#ifndef _CALLBACK_RUNTIME_DEFINED
+#define _CALLBACK_RUNTIME_DEFINED
 #define _CALLBACK_MAX 128
 static void *_callback_table[_CALLBACK_MAX] = {0};
 
@@ -37,6 +39,7 @@ static void *_callback_get(int id) {
   if (id >= 0 && id < _CALLBACK_MAX) return _callback_table[id];
   return (void*)0;
 }
+#endif
 %}
 end
 
