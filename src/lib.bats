@@ -41,7 +41,6 @@ static void *_callback_get(int id) {
 }
 #endif
 %}
-end
 
 (* ============================================================
    Implementation
@@ -80,3 +79,5 @@ fn _test_register_fire_remove(): void = let
   val () = fire(0, 42)
   val () = remove(0)
 in () end
+
+end (* $UNSAFE *)
