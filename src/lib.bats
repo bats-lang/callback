@@ -41,7 +41,6 @@ static void *_callback_get(int id) {
 }
 #endif
 %}
-end
 
 (* ============================================================
    Implementation
@@ -49,7 +48,7 @@ end
 
 implement
 register(id, cb) = let
-  val cbp = $UNSAFE begin $UNSAFE.castvwtp0{ptr}(cb) end
+  val cbp = $UNSAFE.castvwtp0{ptr}(cb)
 in $extfcall(void, "_callback_set", id, cbp) end
 
 implement
@@ -57,7 +56,7 @@ fire(id, payload) = let
   val cbp = $extfcall(ptr, "_callback_get", id)
 in
   if ptr_isnot_null(cbp) then let
-    val cb = $UNSAFE begin $UNSAFE.cast{(int) -<cloref1> void}(cbp) end
+    val cb = $UNSAFE.cast{(int) -<cloref1> void}(cbp)
     val () = cb(payload)
   in () end
   else ()
@@ -80,3 +79,5 @@ fn _test_register_fire_remove(): void = let
   val () = fire(0, 42)
   val () = remove(0)
 in () end
+
+end (* $UNSAFE *)
